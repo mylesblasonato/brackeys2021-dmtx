@@ -20247,7 +20247,7 @@ MonoBehaviour:
   _willPowerModeDuration: 5
   _willPowerMode: 0
   _meter: {fileID: 1238830171}
-  _vfx: {fileID: 0}
+  _vfx: {fileID: 1882531203}
   _inputController: {fileID: 8208552647657682973}
 --- !u!1 &2033677308
 GameObject:
@@ -20657,6 +20657,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1635321135}
     - target: {fileID: 8208552647187759083, guid: c975b7f150963164594d020043b87b0c, type: 3}
+      propertyPath: _speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8208552647187759083, guid: c975b7f150963164594d020043b87b0c, type: 3}
       propertyPath: _hiLevel
       value: 
       objectReference: {fileID: 1587405999}
@@ -20670,11 +20674,15 @@ PrefabInstance:
       objectReference: {fileID: 8208552647657682973}
     - target: {fileID: 8208552647187759083, guid: c975b7f150963164594d020043b87b0c, type: 3}
       propertyPath: _enemySpeed
-      value: 0.05
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8208552647187759083, guid: c975b7f150963164594d020043b87b0c, type: 3}
+      propertyPath: _multiplier
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8208552647187759083, guid: c975b7f150963164594d020043b87b0c, type: 3}
       propertyPath: _diffIncreaseAmount
-      value: 0.02
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8208552647187759083, guid: c975b7f150963164594d020043b87b0c, type: 3}
       propertyPath: _animators.Array.data[0]

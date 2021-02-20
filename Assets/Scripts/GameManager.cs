@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
         _enemySpeed = _data._diffMultiplier;
         _diffIncreaseAmount = _data._diffIncreaseAmount;
 
-        AudioManager.Instance.PlayBGM(0, 0, _startingBGMIndex);
+        //AudioManager.Instance.PlayBGM(0, 0, _startingBGMIndex);
         AudioManager.Instance.PlayBGM(2, 2, 0);
 
         if (_data._level > _data._hiLevel)

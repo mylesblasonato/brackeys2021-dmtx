@@ -41,16 +41,16 @@ public class MeterController : MonoBehaviour
         var elapsed = 0f;
         _vfx.Play();
         AudioManager.Instance.ChangeVolume(2, 1);
-        while (elapsed < _willPowerModeDuration * 1000)
+        while (elapsed < _willPowerModeDuration)
         {
-            _currentWillPower -= _willPowerIncrement;
+            _currentWillPower -= _currentWillPower / _willPowerModeDuration;
             _meter.localScale = new Vector3(_currentWillPower / _willPowerMax, _meter.localScale.y, _meter.localScale.z);
-            elapsed += 0.1f;
-            yield return new WaitForSeconds(0.1f);          
+            elapsed += 1f;
+            yield return new WaitForSeconds(1f);          
         }
+        //GameManager.Instance._speed = 0.01f;
         _currentWillPower = 0;
-        _vfx.Stop();
-        AudioManager.Instance.ChangeVolume(2, 0.5f);
+        _vfx.Stop();       
         _willPowerMode = false;
     }
 }

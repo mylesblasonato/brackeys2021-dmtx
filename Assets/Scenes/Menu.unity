@@ -9880,7 +9880,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data: {fileID: 11400000, guid: 299f95fa03dbb904faf66c39974a7867, type: 2}
   _text: {fileID: 1587405999}
-  _startingEnemyDiff: 0.09
+  _startingEnemyDiff: 1
   _startingBGMIndex: 0
 --- !u!1001 &1743594123
 PrefabInstance:

@@ -14,11 +14,10 @@ public class PlayButton : MonoBehaviour
     private void Start()
     {
         _data._hiLevel = PlayerPrefs.GetFloat("TopLevel");
-        _data._diffMultiplier = PlayerPrefs.GetFloat("Boss");
+        _data._diffMultiplier = PlayerPrefs.GetFloat("Boss", 10);
         _text.text = $"Top Level: {_data._hiLevel}";
 
         AudioManager.Instance.PlayBGM(0, 0, _startingBGMIndex);
-        AudioManager.Instance.PlayBGM(2, 2, 0);
     }
 
     // Update is called once per frame

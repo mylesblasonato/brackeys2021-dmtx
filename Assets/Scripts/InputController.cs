@@ -16,9 +16,8 @@ public class InputController : MonoBehaviour
     {
         _onInputDown?.Invoke();
         SetAnimatorBool(true);
-        Move(-transform.right, GameManager.Instance._speed);
+        Move(-transform.right, GameManager.Instance._speed * Time.deltaTime);
         _vfx.Play();
-        AudioManager.Instance.PlaySFX(1, 1, 1);
         GameManager.Instance._speed += GameManager.Instance._multiplier;
     }
 
@@ -31,9 +30,9 @@ public class InputController : MonoBehaviour
                 if (Input.anyKeyDown)
                 {
                     _onInputDown?.Invoke();
-                    Move(-transform.right, GameManager.Instance._speed);
+                    Move(-transform.right, GameManager.Instance._speed / 10);
                     _vfx.Play();
-                    AudioManager.Instance.PlaySFX(1, 1, 1);
+                    AudioManager.Instance.ChangeVolume(2, 0.5f);
                     GameManager.Instance._speed += GameManager.Instance._multiplier;
                 }
 
@@ -51,7 +50,7 @@ public class InputController : MonoBehaviour
                 WillPowerMode();
             }
 
-            Move(transform.right, GameManager.Instance._enemySpeed * GameManager.Instance._data._diffMultiplier);
+            Move(transform.right, GameManager.Instance._enemySpeed * GameManager.Instance._data._diffMultiplier * Time.deltaTime);
         }
     }
 

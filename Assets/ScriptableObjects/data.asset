@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: data
   m_EditorClassIdentifier: 
   _hiLevel: 1
-  _level: 2
-  _diffMultiplier: 0.060000002
+  _level: 1
+  _diffMultiplier: 1
+  _diffIncreaseAmount: 0.2
