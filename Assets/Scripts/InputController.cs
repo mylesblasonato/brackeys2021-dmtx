@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,26 +8,47 @@ public class InputController : MonoBehaviour
     [SerializeField] Animator _animator, _ropeAnimator;
     [SerializeField] GameObject _TugOfWarGroup;
     [SerializeField] ParticleSystem _vfx;
+    [SerializeField] MeterController _meterController;
+
+    public Action _onInputDown;
+
+    public void WillPowerMode()
+    {
+        _onInputDown?.Invoke();
+        SetAnimatorBool(true);
+        Move(-transform.right, GameManager.Instance._speed);
+        _vfx.Play();
+        AudioManager.Instance.PlaySFX(1, 1, 1);
+        GameManager.Instance._speed += GameManager.Instance._multiplier;
+    }
 
     private void Update()
     {
         if (!GameManager.Instance._gameOver)
         {
-            if (Input.anyKeyDown)
+            if (!_meterController._willPowerMode)
             {
-                Move(-transform.right, GameManager.Instance._speed);
-                _vfx.Play();
-                AudioManager.Instance.PlaySFX(1, 1, 1);
-                GameManager.Instance._speed += GameManager.Instance._multiplier;
-            }
-            
-            if(Input.anyKey)
-            {
-                SetAnimatorBool(true);
+                if (Input.anyKeyDown)
+                {
+                    _onInputDown?.Invoke();
+                    Move(-transform.right, GameManager.Instance._speed);
+                    _vfx.Play();
+                    AudioManager.Instance.PlaySFX(1, 1, 1);
+                    GameManager.Instance._speed += GameManager.Instance._multiplier;
+                }
+
+                if (Input.anyKey)
+                {
+                    SetAnimatorBool(true);
+                }
+                else
+                {
+                    SetAnimatorBool(false);
+                }
             }
             else
             {
-                SetAnimatorBool(false);
+                WillPowerMode();
             }
 
             Move(transform.right, GameManager.Instance._enemySpeed * GameManager.Instance._data._diffMultiplier);

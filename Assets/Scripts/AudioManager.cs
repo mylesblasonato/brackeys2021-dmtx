@@ -27,4 +27,9 @@ public class AudioManager : MonoBehaviour
         if(!_channels[channel].isPlaying)
             _channels[channel].PlayOneShot(_audioBanks[bank]._audioClips[index]);
     }
+
+    public void ChangeVolume(int channel, float volume)
+    {
+        _channels[channel].volume = volume;
+    }
 }

@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _data._level += _data.ChangeNumber(1);
+        if (_data._level == 10) _text.text = "Get a friend to help!";
         _enemySpeed = _data._diffMultiplier;
         _diffIncreaseAmount = _data._diffIncreaseAmount;
 
